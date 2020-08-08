@@ -1,0 +1,9 @@
+name: Dylan
+version: ${project.version}
+main: me.majeek.dylan.Dylan
+api-version: 1.16
+depend:
+  - ProtocolLib
+commands:
+  dylan:
+    description: Main command dylan

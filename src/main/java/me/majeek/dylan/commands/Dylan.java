@@ -21,6 +21,8 @@ public class Dylan implements CommandExecutor {
                 new Help(instance).execute(player);
             } else if(args[0].equalsIgnoreCase("car")){
                 new Car(instance).execute(player);
+            } else if(args[0].equalsIgnoreCase("plane")){
+                new Plane(instance).execute(player);
             } else if(args[0].equalsIgnoreCase("reload")){
                 new Reload(instance).execute(player);
             }

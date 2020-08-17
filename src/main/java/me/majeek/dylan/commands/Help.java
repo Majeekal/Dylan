@@ -15,6 +15,7 @@ public class Help implements Command {
         player.sendMessage(ChatColor.GRAY + "--------------" + " [ " + ChatColor.RESET + ChatColor.GREEN + "Dylans Plugin" + ChatColor.GRAY + " ] " + "-------------------");
         player.sendMessage(ChatColor.GRAY + "- " + ChatColor.GREEN + "/dylan help" + ChatColor.WHITE + " - " + ChatColor.GRAY + "Displays this.");
         player.sendMessage(ChatColor.GRAY + "- " + ChatColor.GREEN + "/dylan car" + ChatColor.WHITE + " - " + ChatColor.GRAY + "Spawns or despawns a car.");
+        player.sendMessage(ChatColor.GRAY + "- " + ChatColor.GREEN + "/dylan plane" + ChatColor.WHITE + " - " + ChatColor.GRAY + "Spawns or despawns a plane.");
         player.sendMessage(ChatColor.GRAY + "- " + ChatColor.GREEN + "/dylan reload" + ChatColor.WHITE + " - " + ChatColor.GRAY + "Reloads the config file.");
     }
 }

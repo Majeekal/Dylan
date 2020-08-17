@@ -5,6 +5,7 @@ import com.comphenix.protocol.ProtocolManager;
 import me.majeek.dylan.listeners.CommandListener;
 import me.majeek.dylan.listeners.EventListener;
 import me.majeek.dylan.listeners.PacketListener;
+import me.majeek.dylan.managers.DataManager;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -12,6 +13,7 @@ public final class Dylan extends JavaPlugin {
     private Dylan instance;
     private String prefix;
 
+    private DataManager dataManager;
     private ProtocolManager protocolManager;
 
     private CommandListener commandListener;
@@ -27,6 +29,7 @@ public final class Dylan extends JavaPlugin {
         saveDefaultConfig();
 
         // Managers
+        dataManager = new DataManager(instance);
         protocolManager = ProtocolLibrary.getProtocolManager();
 
         // Listeners
@@ -51,6 +54,10 @@ public final class Dylan extends JavaPlugin {
 
     public String getPrefix() {
         return prefix;
+    }
+
+    public DataManager getDataManager() {
+        return dataManager;
     }
 
     public ProtocolManager getProtocolManager() {

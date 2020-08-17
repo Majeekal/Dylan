@@ -5,8 +5,7 @@ import com.comphenix.protocol.events.ListenerPriority;
 import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketEvent;
 import me.majeek.dylan.Dylan;
-import net.minecraft.server.v1_16_R1.PacketPlayInEntityAction;
-import net.minecraft.server.v1_16_R1.PacketPlayInSteerVehicle;
+import net.minecraft.server.v1_16_R1.*;
 import org.bukkit.Location;
 import org.bukkit.entity.Minecart;
 import org.bukkit.entity.Player;
@@ -26,7 +25,6 @@ public class CarMove extends PacketAdapter {
 
     @Override
     public void onPacketReceiving(PacketEvent event) {
-        // Movement
         if(event.getPacket().getHandle() instanceof PacketPlayInSteerVehicle) {
             PacketPlayInSteerVehicle packet = (PacketPlayInSteerVehicle) event.getPacket().getHandle();
             Player player = event.getPlayer();
@@ -34,7 +32,7 @@ public class CarMove extends PacketAdapter {
             if (player.isInsideVehicle() && player.getVehicle().getCustomName() != null && player.getVehicle().getCustomName().equals("Car")) {
                 this.speed = (float) instance.getConfig().getDouble("car-speed");
 
-                Minecart minecart = (Minecart) player.getVehicle();
+                Minecart car = (Minecart) player.getVehicle();
 
                 Location location = player.getLocation();
                 float forward = packet.c();
@@ -60,10 +58,8 @@ public class CarMove extends PacketAdapter {
                     location.setYaw(location.getYaw() + 135);
                 }
 
-                minecart.setVelocity(new Vector((location.getDirection().getX() / 10) * speed, minecart.getVelocity().getY(), (location.getDirection().getZ() / 10) * speed));
+                car.setVelocity(new Vector((location.getDirection().getX() / 10) * speed, car.getVelocity().getY(), (location.getDirection().getZ() / 10) * speed));
             }
         }
-
-        // Else if minecart is sprinting?????
     }
 }
